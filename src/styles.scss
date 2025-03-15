@@ -1,1 +1,184 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Theme Variables */
+:root {
+  /* Default fallback variables */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --accent-color: #0078ff;
+  --accent-color-hover: #0062d1; /* Hardcoded darker accent color for hover states */
+  --accent-color-rgb: 0, 120, 255;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;
+  --transition-speed: 0.3s;
+}
+
+/* Light theme */
+.light-theme {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --accent-color: #0078ff;
+  --accent-color-hover: #0062d1; /* Hardcoded darker accent color for hover states */
+  --accent-color-rgb: 0, 120, 255;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;
+}
+
+/* Dark theme */
+.dark-theme {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #f5f5f5;
+  --text-secondary: #b3b3b3;
+  --accent-color: #4da6ff;
+  --accent-color-hover: #3a8cd9; /* Hardcoded darker accent color for hover states */
+  --accent-color-rgb: 77, 166, 255;
+  --border-color: #333333;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --card-bg: #1e1e1e;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Common styles */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button, .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+
+  &:hover {
+    background-color: var(--accent-color-hover);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: white;
+  }
+}
+
+/* Card styles */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  padding: 24px;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+  }
+}
+
+/* Responsive grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hide scrollbar but allow scrolling */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+}
